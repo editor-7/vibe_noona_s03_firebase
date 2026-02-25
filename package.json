@@ -1,0 +1,7 @@
+{
+  "name": "vibe-s03-todo-firebase",
+  "private": true,
+  "scripts": {
+    "start": "npx serve ."
+  }
+}

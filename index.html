@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>할일 목록</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>할일 목록</h1>
+      <p class="subtitle">추가 · 완료 체크 · 수정 · 삭제</p>
+    </header>
+
+    <div class="error-box hidden" id="errorBox" role="alert"></div>
+    <div class="connection-status" id="connectionStatus">Realtime Database 연결 중...</div>
+
+    <section class="input-section">
+      <input type="text" id="todoInput" placeholder="새 할일을 입력하세요" maxlength="200" autocomplete="off">
+      <button type="button" id="addBtn" class="btn btn-primary">추가</button>
+    </section>
+
+    <section class="edit-section hidden" id="editSection">
+      <input type="text" id="editInput" placeholder="수정할 내용" maxlength="200" autocomplete="off">
+      <button type="button" id="saveEditBtn" class="btn btn-primary">저장</button>
+      <button type="button" id="cancelEditBtn" class="btn btn-secondary">취소</button>
+    </section>
+
+    <ul class="todo-list" id="todoList"></ul>
+
+    <section class="archive-section">
+      <h2 class="archive-title">보관함</h2>
+      <ul class="todo-list archive-list" id="archiveList"></ul>
+    </section>
+
+    <footer class="footer">
+      <span id="countText">0개의 할일</span>
+    </footer>
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

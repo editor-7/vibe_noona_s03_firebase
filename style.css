@@ -1,0 +1,264 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #1a1b26;
+  --surface: #24283b;
+  --text: #c0caf5;
+  --text-muted: #565f89;
+  --accent: #7aa2f7;
+  --accent-hover: #89b4fa;
+  --danger: #f7768e;
+  --danger-hover: #ff9db3;
+  --success: #9ece6a;
+  --radius: 10px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body {
+  font-family: 'Segoe UI', 'Malgun Gothic', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 24px;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.error-box {
+  background: rgba(247, 118, 142, 0.15);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+
+.connection-status {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.connection-status.connected {
+  color: var(--success);
+  background: rgba(158, 206, 106, 0.15);
+}
+.connection-status.failed {
+  color: var(--danger);
+  background: rgba(247, 118, 142, 0.15);
+}
+
+.input-section,
+.edit-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-section input,
+.edit-section input {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 1px solid var(--text-muted);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-section input:focus,
+.edit-section input:focus {
+  border-color: var(--accent);
+}
+
+.input-section input::placeholder,
+.edit-section input::placeholder {
+  color: var(--text-muted);
+}
+
+.btn {
+  padding: 12px 18px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #1a1b26;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-secondary {
+  background: var(--text-muted);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  background: #6b7ab0;
+}
+
+.btn-edit {
+  background: transparent;
+  color: var(--accent);
+  padding: 8px 12px;
+  font-size: 0.85rem;
+}
+
+.btn-edit:hover {
+  background: rgba(122, 162, 247, 0.15);
+}
+
+.btn-delete {
+  background: transparent;
+  color: var(--danger);
+  padding: 8px 12px;
+  font-size: 0.85rem;
+}
+
+.btn-delete:hover {
+  background: rgba(247, 118, 142, 0.15);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.todo-list {
+  list-style: none;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.todo-item.editing {
+  background: rgba(122, 162, 247, 0.1);
+  border: 1px solid var(--accent);
+}
+
+.todo-check-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.todo-check {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--success);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.todo-text {
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.todo-item.done .todo-text {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.todo-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.archive-section {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--text-muted);
+}
+
+.archive-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.archive-list .todo-item {
+  opacity: 0.9;
+}
+
+.footer {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.empty-message {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.empty-message.hidden {
+  display: none;
+}
